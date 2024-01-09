@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      html {
+        font-size: 62.5%;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background: #258fe1; /*url('https://unsplash.it/1500/1000?image=881&blur=5');*/
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+      }
+      .clock {
+        transform: translateY(-2.5rem);
+        border: 1.8rem solid white;
+        height: 30rem;
+        width: 30rem;
+        border-radius: 50%;
+        padding: 1rem;
+      }
+      .clock-face{
+        height: 100%;
+        /* width: 100%; */
+        position: relative;
+        background-color: rgba(0, 255, 255, 0.534);
+        border-radius: 50%;
+      }
+      .hand{
+        border-radius: 1.5rem;
+        height: .5rem;
+        width:50%;
+        position: absolute;
+        top: 50%;
+        background-color: black;
+        transform-origin: right;
+        /* transform: rotate(90deg); */
+        transition : all 0.05s;
+        transition-timing-function: cubic-bezier(0, 3.47, 0, 1.01);
+      }
+      
+       
+    </style>
+  </head>
+  <body>
+    <div class="clock">
+      <div class="clock-face">
+        <div class="hand second_hand"></div>
+        <div class="hand minute_hand"></div>
+        <div class="hand hour_hand"></div>
+      </div>
+    </div>
+
+    <script>
+      function setDate(){
+        const now = new Date();
+        const seconds = now.getSeconds();
+        const minutes = now.getMinutes();
+        const hours = now.getHours();
+        const secondsDegree = ((seconds/60)*360)+90;
+        const minutesDegree = ((minutes/60)*360)+90;
+        const hoursDegree = ((hours/24)*360)+90;
+        console.log(secondsDegree);
+        const second_hand = document.querySelector(".second_hand");
+        const minute_hand = document.querySelector(".minute_hand");
+        const hour_hand = document.querySelector(".hour_hand");
+
+        second_hand.style.transform=`rotate(${secondsDegree}deg)`;
+        minute_hand.style.transform=`rotate(${minutesDegree}deg)`;
+        hour_hand.style.transform=`rotate(${hoursDegree}deg)`;
+      }
+      setInterval(setDate, 1000);
+    </script>
+  </body>
+</html>
