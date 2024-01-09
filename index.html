@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>CLOCK</title>
     <style>
       html {
         font-size: 62.5%;
@@ -26,12 +26,14 @@
         width: 30rem;
         border-radius: 50%;
         padding: 1rem;
+        background-color: rgba(0, 255, 255, 0.534);
       }
       .clock-face{
         height: 100%;
+        /* margin: 1rem; */
         /* width: 100%; */
         position: relative;
-        background-color: rgba(0, 255, 255, 0.534);
+        top: 0;
         border-radius: 50%;
       }
       .hand{
@@ -68,7 +70,6 @@
         const secondsDegree = ((seconds/60)*360)+90;
         const minutesDegree = ((minutes/60)*360)+90;
         const hoursDegree = ((hours/24)*360)+90;
-        console.log(secondsDegree);
         const second_hand = document.querySelector(".second_hand");
         const minute_hand = document.querySelector(".minute_hand");
         const hour_hand = document.querySelector(".hour_hand");
